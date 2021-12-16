@@ -1,0 +1,109 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+a, ul, li {
+    text-decoration: none;
+}
+
+a:visited, a:link {
+    color: #0066CC;
+}
+
+header {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #5c9dd7;
+    color: white;
+    width: 100%;
+    height: 20%;
+}
+
+header #logo {
+    margin: 1% 2% 1% -2%;
+}
+
+header #logo a img {
+    width: 75px;
+    height: 150px;
+    border-radius: 10%;
+}
+
+header #title h1 {
+    font-family: sans-serif;
+    font-size: 75px;
+    margin: 2% 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+header #title p {
+    font-family: sans-serif;
+    margin: 0 0 20px 0;
+}
+
+footer {
+    position: fixed;
+    background: #5c9dd7;
+    z-index: 50;
+    text-align: center;
+    color: white;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+#cv {
+    width: 100%;
+    height: 74.5%;
+    position: absolute;
+}
+
+#summary {
+    border: solid 2px skyblue;
+    border-radius: 5px;
+    padding: 0.5em 1em 0.5em 2.3em;
+    position: relative;
+    text-align: center;;
+}
+
+#summary li {
+    line-height: 1.5;
+    padding: 0.5em 0;
+    list-style-type: none;
+}
+
+/*.next-previous {
+    position: relative;
+}*/
+
+.inline {
+    display: inline;
+}
+
+#techs, #artists {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#java, #j2ee, #html, #css, #garrix, #guetta, #chnsmkrs {
+    width: 300px;
+}
+
+#me, #interests {
+    font-size: 21px;
+}
+
+#garrix, #guetta, #chnsmkrs {
+    margin-left: 2%;
+}

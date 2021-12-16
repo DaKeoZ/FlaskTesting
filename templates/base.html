@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/styles/main.css">
+        <title>{{ title }}</title>
+    </head>
+
+    <body>
+        <header>
+            <div id="logo">
+                <a href="/">
+                    <img src="/static/img/me.jpg" alt="This is me">
+                </a>
+            </div>
+            <div id="title">
+                <h1>Aurelien Farges</h1>
+                <p>3rd year student in Software Development</p>
+            </div>
+        </header>
+
+        {% block body %}
+        {% endblock %}
+
+        <footer>
+            <p>© 2021 • Aurelien Farges</p>
+        </footer>
+
+    </body>
+
+</html>

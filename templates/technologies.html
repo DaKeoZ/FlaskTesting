@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2 class="center">
+        Here are my favourite computing technologies.
+    </h2>
+
+    <br>
+
+    <div id="techs">
+        <div>
+            <h3 class="tech-name center">1- Java</h3>
+            <a href="https://www.java.com" target="_blank">
+                <img id="java" src="/static/img/java.png" alt="Java Logo">
+            </a>
+        </div>
+        <div>
+            <h3 class="tech-name center">2- JakartaEE (previously JavaEE)</h3>
+            <a href="https://jakarta.ee" target="_blank">
+                <img id="j2ee" src="/static/img/jakartaee.png" alt="JakartaEE Logo">
+            </a>
+        </div>
+        <div>
+            <h3 class="tech-name center">3- Web technologies</h3>
+            <div class="inline">
+                <a href="https://html.com" target="_blank">
+                    <img id="html" src="/static/img/html.png" alt="HTML Logo">
+                </a>
+                <a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank">
+                    <img id="css" src="/static/img/css.png" alt="CSS Logo">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
