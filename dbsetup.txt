@@ -1,0 +1,16 @@
+create database testing;
+
+use testing;
+
+grant all on testing.* to 'tester' identified by 'testerpasswd';
+
+
+# mysql -u tester -p testing
+
+
+
+create table reviews(id int(11) not null auto_increment primary key, email varchar(255) not null, content text not null, date date not null);
+
+# To make sure the table has been correctly created
+show tables;
+describe testing;

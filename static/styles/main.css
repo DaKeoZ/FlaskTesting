@@ -82,10 +82,6 @@ footer {
     list-style-type: none;
 }
 
-/*.next-previous {
-    position: relative;
-}*/
-
 .inline {
     display: inline;
 }
@@ -106,4 +102,8 @@ footer {
 
 #garrix, #guetta, #chnsmkrs {
     margin-left: 2%;
+}
+
+.bigger {
+    font-size: 20px;
 }

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2 class="center">
+        List of posted comments
+    </h2>
+
+    <br>
+
+    <div class="center">
+        <hr>
+        {% for review in review %}
+            <p class="center">
+                Posted by {{review[0]}} at {{review[2]}}
+            </p>
+            <p class="center bigger">
+                {{review[1]}}
+            </p>
+            <hr>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,9 +1,11 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 webapp = Flask(__name__)
-numTechnologies = 0
-currentTechnology = 1
+
+from dbcm2 import DBcm
+from appconfig import config
+from datetime import date
 
 
 @webapp.get("/")
@@ -23,16 +25,11 @@ def mycv():
 
 @webapp.get("/technologies")
 def defaultTechnology():
-    """return technologies(1)"""
     return render_template("technologies.html", title="Computing technologies")
 
 
 @webapp.get("/technologies/<index>")
 def technologies(index):
-    """currentTechnology = int(index)
-    if (int(index) > numTechnologies): index = numTechnologies
-    s = "technologies{id}.html"
-    return render_template(s.format(id=index), title="Computing technologies")"""
     return render_template("technologies.html", title="Computing technologies")
 
 
@@ -43,29 +40,36 @@ def interests():
 
 @webapp.get("/comments")
 def comments():
-    return render_template("comments.html", title="Comments")
+    return render_template("comments.html", title="Post your comment")
 
 
 @webapp.post("/submitted")
 def submitted():
     email = request.form["email"]
     comment = request.form["comment"]
-    with open("./static/resources/comments.txt", "a") as sf:
-        print(f"{email}\n{comment}\n", file=sf)
+
+    with DBcm.UseDatabase(config) as db:
+        SQL = """
+            insert into reviews 
+            (email, content) 
+            values 
+            (%s, %s)
+        """
+        db.execute(SQL, (email, comment))
     return render_template("success.html", title="Comment submitted")
 
 
-"""def previousTechnology():
-    return
+@webapp.get("/reviews")
+def getComments():
+    with DBcm.UseDatabase(config) as db:
+        SQL = """
+            select email, content, date 
+            from reviews;
+        """
+        db.execute(SQL)
+        data = db.fetchall()
+    return render_template("reviews.html", title="Reviews", review=data)
 
-@webapp.post("/next")
-def nextTechnology():
-    s = "technologies{id}.html"
-    return render_template(s.format(id=currentTechnology+1), title="Computing technologies")"""
 
 if __name__ == "__main__":
-    files = os.listdir("./templates")
-    for file in files:
-        if file.startswith("technologies"):
-            numTechnologies += 1
     webapp.run(debug=True)
