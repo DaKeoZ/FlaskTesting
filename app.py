@@ -64,7 +64,8 @@ def getComments():
     with DBcm.UseDatabase(config) as db:
         SQL = """
             select email, content, date 
-            from reviews;
+            from reviews
+            order by id desc;
         """
         db.execute(SQL)
         data = db.fetchall()
