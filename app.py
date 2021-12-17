@@ -26,11 +26,6 @@ def defaultTechnology():
     return render_template("technologies.html", title="Computing technologies")
 
 
-@app.get("/technologies/<index>")
-def technologies(index):
-    return render_template("technologies.html", title="Computing technologies")
-
-
 @app.get("/interests")
 def interests():
     return render_template("interests.html", title="Personal interests")
@@ -71,4 +66,4 @@ def getComments():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)  # pragma: no cover

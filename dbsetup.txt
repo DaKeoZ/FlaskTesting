@@ -12,4 +12,4 @@ create table reviews(id int(11) not null auto_increment primary key, email varch
 
 # To make sure the table has been correctly created
 show tables;
-describe testing;
+describe reviews;
