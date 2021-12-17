@@ -1,49 +1,47 @@
-import os
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 
-webapp = Flask(__name__)
+app = Flask(__name__)
 
 from dbcm2 import DBcm
 from appconfig import config
-from datetime import date
 
 
-@webapp.get("/")
+@app.get("/")
 def home():
     return render_template("home.html", title="Welcome")
 
 
-@webapp.get("/about")
+@app.get("/about")
 def about():
     return render_template("about.html", title="About me")
 
 
-@webapp.get("/cv")
+@app.get("/cv")
 def mycv():
     return render_template("cv.html", title="My CV")
 
 
-@webapp.get("/technologies")
+@app.get("/technologies")
 def defaultTechnology():
     return render_template("technologies.html", title="Computing technologies")
 
 
-@webapp.get("/technologies/<index>")
+@app.get("/technologies/<index>")
 def technologies(index):
     return render_template("technologies.html", title="Computing technologies")
 
 
-@webapp.get("/interests")
+@app.get("/interests")
 def interests():
     return render_template("interests.html", title="Personal interests")
 
 
-@webapp.get("/comments")
+@app.get("/comments")
 def comments():
     return render_template("comments.html", title="Post your comment")
 
 
-@webapp.post("/submitted")
+@app.post("/submitted")
 def submitted():
     email = request.form["email"]
     comment = request.form["comment"]
@@ -59,7 +57,7 @@ def submitted():
     return render_template("success.html", title="Comment submitted")
 
 
-@webapp.get("/reviews")
+@app.get("/reviews")
 def getComments():
     with DBcm.UseDatabase(config) as db:
         SQL = """
@@ -73,4 +71,4 @@ def getComments():
 
 
 if __name__ == "__main__":
-    webapp.run(debug=True)
+    app.run(debug=True)
